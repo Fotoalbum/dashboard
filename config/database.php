@@ -51,8 +51,8 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-
-        'mysql' => [
+		
+		'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
@@ -65,6 +65,58 @@ return [
             'strict' => false,
             'engine' => null,
         ],
+		
+		/*
+		
+		'fotoalbumnl' => array(
+            'driver'    => 'mysql',
+            'host'      => 'host1',
+            'database'  => 'database1',
+            'username'  => 'user1',
+            'password'  => 'pass1'
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => ''
+        ),
+		
+		'fotoalbumbe' => array(
+            'driver'    => 'mysql',
+            'host'      => 'host1',
+            'database'  => 'database1',
+            'username'  => 'user1',
+            'password'  => 'pass1'
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => ''
+        ),
+		
+		'albumphotobe' => array(
+            'driver'    => 'mysql',
+            'host'      => 'host1',
+            'database'  => 'database1',
+            'username'  => 'user1',
+            'password'  => 'pass1'
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => ''
+        ),
+		
+		'albumphotofr' => array(
+            'driver'    => 'mysql',
+            'host'      => 'host1',
+            'database'  => 'database1',
+            'username'  => 'user1',
+            'password'  => 'pass1'
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => ''
+        ),
+		
+		
+		*/
+ 
+		
+		
 
         'pgsql' => [
             'driver' => 'pgsql',
