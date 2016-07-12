@@ -52,6 +52,10 @@ return [
             'prefix' => '',
         ],
 		
+		/*****************************************/
+		/***** 			THE GENERAL          *****/
+		/*****************************************/
+		
 		'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
@@ -66,55 +70,71 @@ return [
             'engine' => null,
         ],
 		
-		/*
 		
-		'fotoalbumnl' => array(
-            'driver'    => 'mysql',
-            'host'      => 'host1',
-            'database'  => 'database1',
-            'username'  => 'user1',
-            'password'  => 'pass1'
-            'charset'   => 'utf8',
+
+		
+		/*****************************************/
+		/***** 			ALL FOUR DB's        *****/
+		/*****************************************/
+		'fotoalbumnl' => [
+            'driver' => 'mysql',
+            'host' => '79.99.187.11', 						// env('DB_HOST', 'localhost'),
+            //'port' => env('DB_PORT', '3306'),
+            'database' => 'hetgeheimeproject_nl',			// env('DB_DATABASE', 'forge'),
+            'username' => 'fotoalbum_write',				// env('DB_USERNAME', 'forge'),
+            'password' => 'JMYdhjAKyhHQ4DYJ',				// env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => ''
-        ),
-		
-		'fotoalbumbe' => array(
-            'driver'    => 'mysql',
-            'host'      => 'host1',
-            'database'  => 'database1',
-            'username'  => 'user1',
-            'password'  => 'pass1'
-            'charset'   => 'utf8',
+            //'prefix' => '',									// can be shop_ 
+            'strict' => false,
+            'engine' => null,
+        ],
+		'fotoalbumbe' => [
+			'driver' => 'mysql',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => ''
-        ),
-		
-		'albumphotobe' => array(
-            'driver'    => 'mysql',
-            'host'      => 'host1',
-            'database'  => 'database1',
-            'username'  => 'user1',
-            'password'  => 'pass1'
-            'charset'   => 'utf8',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+		'albumphotobe' => [
+			'driver' => 'mysql',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => ''
-        ),
-		
-		'albumphotofr' => array(
-            'driver'    => 'mysql',
-            'host'      => 'host1',
-            'database'  => 'database1',
-            'username'  => 'user1',
-            'password'  => 'pass1'
-            'charset'   => 'utf8',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+		'albumphotofr' => [
+			'driver' => 'mysql',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => ''
-        ),
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
 		
 		
-		*/
- 
+		
+		/*****************************************/
+		/*****************************************/
+		/*****************************************/
+		
 		
 		
 
