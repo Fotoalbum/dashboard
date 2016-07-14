@@ -12,11 +12,23 @@
 	
 	
 	<div class="well">
-		NL laatste orders fetched: <?php echo count($nldOrders); ?>
-		<br />
-		<br />
-		NL-BE laatste orders fetched: <?php echo count($nlbeOrders); ?>
-	</div>
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				<?php
+				if(DB::connection()->getDatabaseName())
+				{
+				  echo "Conncted sucessfully to database: ".DB::connection()->getDatabaseName();
+				} 
+				?>
+			</div>
+			<div class="col-md-6 col-sm-6 col-xs-6">
+				NL laatste orders fetched: <?php echo count($nldOrders); ?>
+				<br />
+				<br />
+				NL-BE laatste orders fetched: <?php echo count($nlbeOrders); ?>
+			</div>
+		</div>
+	</div><!-- // well .. -->
 	
 	<div class="col-md-6 col-sm-6 col-xs-6">
 		<div id="chartContainer"></div>

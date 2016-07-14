@@ -58,11 +58,11 @@ return [
 		
 		'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => '79.99.187.11',
+            //'port' => env('DB_PORT', '3306'),
+            'database' => 'dashboard',
+            'username' => 'fotoalbum_root',
+            'password' => '3wnvfEX4psGrp7BU',
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
