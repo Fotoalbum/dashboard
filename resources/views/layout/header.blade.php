@@ -8,7 +8,10 @@
 		<script src="{{ url('/static/js/jquery-2.2.4.min.js') }}"></script>
 		<script src="{{ url('/static/js/bootstrap.min.js') }}"></script>
 		<script src="{{ url('/static/js/canvasjs.min.js') }}"></script>        
+		<script src="{{ url('/static/js/dash-frontend.js') }}"></script>        
     </head>
     <body>
+     
+    <!-- Start content @ dashboard.blade.php -->
       
  

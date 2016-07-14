@@ -1,8 +1,6 @@
 @include('layout/header')
 
-
-<div class="container">
-
+<content id="dashboard">
 
 	<div class="well text-center">
 		Well.. well.. well..<br />
@@ -30,129 +28,141 @@
 		</div>
 	</div><!-- // well .. -->
 	
-	<div class="col-md-6 col-sm-6 col-xs-6">
-		<div id="chartContainer"></div>
+	<div class="col-md-4 col-sm-4 col-xs-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading"><strong>Last 30 days</strong> <span class="pull-right"><i class="fa fa-calendar" aria-hidden="true"></i></span></div>
+			<div class="panel-body">
+				<!-- Chart for last 30 days -->
+				<div id="chartContainer"></div>	
+			</div>
+		</div>
 	</div>
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	
-	<div class="div">
+	<div class="col-md-3 col-sm-3 col-xs-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading"><strong>Last 24 hours</strong> <span class="pull-right"><i class="fa fa-hourglass-half" aria-hidden="true"></i></span></div>
+			<div class="panel-body">
+				
+				
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<p>
+							<strong>[FLAG] Netherlands  	<br />
+									[FLAG] Belgium (NL) 	<br />
+									[FLAG] Belgium (FRA) 	<br />
+									[FLAG] France 			
+							</strong>
+						</p>	
+					</div>		
+					<div class="col-md-3 col-sm-3 col-xs-12 text-right">
+						<p>
+							<?php echo $nl_total_orders; ?><br />
+							<?php echo $nlbe_total_orders; ?><br />
+							<?php echo $frbe_total_orders; ?><br />
+							<?php echo $fra_total_orders; ?>
 
-		<?php
-			$totalNLorders	= 0;	// Lets count.
-			$nldOrder 		= [];
-			$today_date 	=  date('Ymd H:i:s');	
-		
-			foreach ($nldOrders as $nldOrder){
-				$order_created 	= $nldOrder->created;
-				$hourdiff 		= round((strtotime($today_date) - strtotime($order_created))/3600, 0);
-				$total_price 	= number_format($nldOrder->subtotal + $nldOrder->shipping - $nldOrder->discount, 2, '.', '');
-		
-				if($hourdiff < 24 && $total_price > 0){
-					$totalNLorders++;
-					echo "Legit.." .$total_price. " - " .$totalNLorders. "<br />";
-				}
-			} 
-		?>
-		<?php
-			$totalNLBEorders = 0;	// Lets count.
-			$nldOrder 		 = [];
-			$today_date 	 =  date('Ymd H:i:s');	
-		
-			foreach ($nlbeOrders as $nlbeOrder){
-				$order_created 	= $nlbeOrder->created;
-				$hourdiff 		= round((strtotime($today_date) - strtotime($order_created))/3600, 0);
-				$total_price 	= number_format($nlbeOrder->subtotal + $nlbeOrder->shipping - $nlbeOrder->discount, 2, '.', '');
-		
-				if($hourdiff < 24 && $total_price > 0){
-					$totalNLBEorders++;
-					echo "Legit.." .$total_price. " - " .$totalNLBEorders. "<br />";
-				}
-			} 
-		?>
-		
-		<h1> Total orders in Netherlands: <?php echo $totalNLorders; ?></h1>
-		<h1> Total orders in Belgie: <?php echo $totalNLBEorders; ?></h1>
-	
+						</p>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-12 text-right">
+						<p>
+							<?php echo $nl_total_money; ?><br />
+							<?php echo $nlbe_total_money; ?><br />
+							<?php echo $frbe_total_money; ?><br />
+							<?php echo $fra_total_money; ?>
+						</p>
+					</div>
+				</div><!-- // row -->
+
+				<!-- Divider -->
+				<div class="row"><div class="col-md-12"><div class="divider small">&nbsp;</div></div></div>
+				<!-- // Divider -->					
+
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-12">
+						<h3 class="margintop0"><strong>Orders in total:</strong></h3>	
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-12 text-right">
+						<h3 class="margintop0"><?php echo $total_orders; ?></h3>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-12 text-right">
+						<h3 class="margintop0"><?php echo $total_money; ?></h3>
+					</div>
+				</div><!-- // row -->					
+			</div>
+		</div>
 	</div>
 	
-	
+</content><!-- // content -->
 
-	<script type="text/javascript">
-		   window.onload = function () {
-			var chart = new CanvasJS.Chart("chartContainer",
-			{      
-			  theme: "theme5",
-			  title:{ text: "Last 30 days" },
-			  animationEnabled: true,
-			  axisY :{
-				includeZero: false,
-				valueFormatString: "#,,.",
-				suffix: " ??"
-			  },
-			  toolTip: { shared: "true" },
-			  
-			  /* Nederland */
-			  data: [
-			  {        
-				type: "spline", 
-				showInLegend: true,
-				name: "Fotoalbum.nl",
-				markerSize: 6,        
-				color: "orange",
-				dataPoints: [
-				{label: "1", y: 1},
-				{label: "2", y: 2},        
-				{label: "3", y: 3},        
-				{label: "4", y: 4},        
-				{label: "5", y: 3},        
-				{label: "6", y: 2},        
-				{label: "7", y: 4},        
-				{label: "8", y: 5},        
-				{label: "9", y: 4},        
-				{label: "10", y: 2}        
-				]
-			  },
-			  /* Belgie (fotoalbum.be) */
-			  {        
-				type: "spline", 
-				showInLegend: true,
-				markerSize: 5,
-				name: "Fotoalbum.be",
-				color: "yellow",
-				dataPoints: [
-				{label: "1", y: 2},        
-				{label: "2", y: 3},        
-				{label: "3", y: 4},        
-				{label: "4", y: 3},        
-				{label: "5", y: 2},        
-				{label: "6", y: 4},        
-				{label: "7", y: 5},        
-				{label: "8", y: 4},        
-				{label: "9", y: 2},
-				{label: "10", y: 1}
-				]
-			  } ],legend:{cursor:"pointer",itemclick : function(e) {if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){e.dataSeries.visible = false;}else {e.dataSeries.visible = true;}chart.render();}},
-			});
 
-		chart.render();
-		}
-	</script>
 
-	
-	
-</div>
+
+
+
+<script type="text/javascript">
+ $(document).ready(function (){			
+	var chart = new CanvasJS.Chart("chartContainer",
+	{      
+	 theme:"theme5",
+      animationEnabled: true,
+      axisY :{
+        includeZero: false,
+        // suffix: " k",
+        //valueFormatString: "",
+        prefix: "€",
+		//suffix: ".-"
+      },
+      toolTip: {
+        shared: "true"
+      },
+      data: [
+	  {        
+		type: "spline", 
+		showInLegend: true,
+		name: "Fotoalbum.nl",
+		markerSize: 6,        
+		color: "orange",
+		dataPoints: [
+		{label: "1", y: 1},
+		{label: "2", y: 2},        
+		{label: "3", y: 3},        
+		{label: "4", y: 4},        
+		{label: "5", y: 3},        
+		{label: "6", y: 2},        
+		{label: "7", y: 4},        
+		{label: "8", y: 5},        
+		{label: "9", y: 4},        
+		{label: "10", y: 2}        
+		]
+	  },
+	  /* Belgie (fotoalbum.be) */
+	  {        
+		type: "spline", 
+		showInLegend: true,
+		markerSize: 5,
+		name: "Fotoalbum.be",
+		color: "yellow",
+		dataPoints: [
+		{label: "1", y: 2},        
+		{label: "2", y: 3},        
+		{label: "3", y: 4},        
+		{label: "4", y: 3},        
+		{label: "5", y: 2},        
+		{label: "6", y: 4},        
+		{label: "7", y: 5},        
+		{label: "8", y: 4},        
+		{label: "9", y: 2},
+		{label: "10", y: 1}
+		]
+	  } ],legend:{cursor:"pointer",itemclick : function(e) {if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){e.dataSeries.visible = false;}else {e.dataSeries.visible = true;}chart.render();}},
+	});
+	chart.render();
+
+	/* Set Height of 30 day chart. */
+	var heightOf30days = $("#chartContainer .canvasjs-chart-canvas").height();
+	$("#chartContainer").css("height", heightOf30days);
+});
+</script>
+
+
 
 @include('layout/footer')
