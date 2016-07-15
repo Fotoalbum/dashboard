@@ -72,14 +72,12 @@ class DashboardController extends Controller
 				$fra_total_money = $fra_total_money + $total_price;
 			}
 		}
-	
-		
-		
-		
+
+		/* Fetch all the totals of the last 24 hours */
 		$total_orders = $nl_total_orders + $nlbe_total_orders + $frbe_total_orders + $fra_total_orders;
 		$total_money = $nl_total_money + $nlbe_total_money + $frbe_total_money + $fra_total_money;
+		/* // Fetch all the totals of the last 24 hours */	
 		
-			
 		return view('dashboard', compact(
 			'nl_total_orders',	 // Number, amount of orders.	    - Fotoalbum.nl
 			'nl_total_money',    // Total money of amount of orders - Fotoalbum.nl
