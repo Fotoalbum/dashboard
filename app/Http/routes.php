@@ -13,4 +13,7 @@ Route::get('/', function () {
 
 Route::get('/home', 'DashboardController@index');
 
+Route::get('/fetch', 'ExtractionController@index');
+Route::post('/fetchdata', 'ExtractionController@fetcher');
+
 

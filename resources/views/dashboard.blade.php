@@ -1,4 +1,6 @@
 @include('layout/header')
+<script src="{{ url('/static/js/dash-frontend.js') }}"></script>        
+<script src="{{ url('/static/js/canvasjs.min.js') }}"></script>    
 
 <content id="dashboard">
 
